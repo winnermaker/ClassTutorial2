@@ -12,14 +12,6 @@ namespace Version_2_C
         private decimal _Value;
         public static readonly string FACTORY_PROMPT = "Enter P for Painting, S for Sculpture and H for Photograph";
 
-        // Factory Pattern example:
-        //private static Dictionary<char, clsWorkFactory> WorkFactories = new Dictionary<char, clsWorkFactory>()
-        //    {
-        //        {'P',new clsPaintingFactory()},
-        //        {'H',new clsPhotoFactory()},
-        //        {'S',new clsSculptureFactory()}
-        //    };
-
         public clsWork()
         {
             EditDetails();
@@ -27,16 +19,6 @@ namespace Version_2_C
 
         public static clsWork NewWork(char prChoice)
         {
-            // Factory Pattern example:
-            //try
-            //{
-            //    return WorkFactories[char.ToUpper(prChoice)].CreateWork();
-            //}
-            //catch (Exception)
-            //{
-            //    return null;
-            //}
-
             switch (char.ToUpper(prChoice))
             {
                 case 'P': return new clsPainting();
@@ -70,7 +52,6 @@ namespace Version_2_C
             get { return _Value; }
             set { _Value = value; }
         }
-
 
     }
 }
