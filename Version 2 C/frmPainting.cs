@@ -1,12 +1,13 @@
 namespace Version_2_C
 {
-    public partial class frmPainting : Version_2_C.frmWork
-    {
-
-        public frmPainting()
+    sealed partial class frmPainting : Version_2_C.frmWork
+    {        
+        private frmPainting()
         {
             InitializeComponent();
         }
+
+        public static readonly frmPainting Instance = new frmPainting();
 
         protected override void updateForm()
         {

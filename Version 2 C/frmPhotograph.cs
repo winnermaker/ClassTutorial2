@@ -1,11 +1,13 @@
 namespace Version_2_C
 {
-    public partial class frmPhotograph : Version_2_C.frmWork
-    {
-        public frmPhotograph()
+    sealed partial class frmPhotograph : Version_2_C.frmWork
+    {       
+        private frmPhotograph()
         {
             InitializeComponent();
         }
+
+        public static readonly frmPhotograph Instance = new frmPhotograph();
 
         protected override void updateForm()
         {
