@@ -8,18 +8,18 @@ namespace Version_2_C
         private float _Width;
         private float _Height;
         private string _Type;
-
-
-        //[NonSerialized()]
-        //private static frmPainting _PaintDialog;
+        
+        public delegate void LoadPaintingFormDelegate(clsPainting prPainting);
+        public static LoadPaintingFormDelegate LoadPaintingForm;
 
         public override void EditDetails()
         {
             /*if (_PaintDialog == null)
                 _PaintDialog = new frmPainting();
             _PaintDialog.SetDetails(this);*/
-            frmPainting.Instance.SetDetails(this);
-        }
+
+            LoadPaintingForm(this);
+        }        
 
         public Single Width
         {

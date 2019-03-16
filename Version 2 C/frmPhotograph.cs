@@ -9,6 +9,11 @@ namespace Version_2_C
 
         public static readonly frmPhotograph Instance = new frmPhotograph();
 
+        public static void Run(clsPhotograph prPhotograph)
+        {
+            Instance.SetDetails(prPhotograph);
+        }
+
         protected override void updateForm()
         {
             base.updateForm();
