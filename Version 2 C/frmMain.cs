@@ -15,7 +15,7 @@ namespace Version_2_C
 
         internal static frmMain Instance => _Instance;
 
-        private void updateDisplay()
+        public void updateDisplay()
         {
             lstArtists.DataSource = null;
             string[] lcDisplayList = new string[_ArtistList.Count];
@@ -23,14 +23,15 @@ namespace Version_2_C
             lstArtists.DataSource = lcDisplayList;
             lblValue.Text = Convert.ToString(_ArtistList.GetTotalValue());
         }
+      
+
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            
             try
             {
-                _ArtistList.NewArtist();
-                MessageBox.Show("Artist added!", "Success");
-                updateDisplay();
+                frmArtist.Run(new clsArtist(_ArtistList));
             }
             catch (Exception ex)
             {
@@ -46,8 +47,7 @@ namespace Version_2_C
             if (lcKey != null)
                 try
                 {
-                    _ArtistList.EditArtist(lcKey);
-                    updateDisplay();
+                    frmArtist.Run(_ArtistList[lcKey]);
                 }
                 catch (Exception ex)
                 {

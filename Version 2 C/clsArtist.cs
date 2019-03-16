@@ -14,22 +14,22 @@ namespace Version_2_C
 
         private clsWorksList _WorksList;
         private clsArtistList _ArtistList;
-
-        private static frmArtist _ArtistDialog = new frmArtist();
+       
 
         public clsArtist() { }
 
         public clsArtist(clsArtistList prArtistList)
         {
             _WorksList = new clsWorksList();
-            _ArtistList = prArtistList;
-            EditDetails();
+            _ArtistList = prArtistList;            
         }
 
-        public void EditDetails()
+        public void NewArtist()
         {
-            _ArtistDialog.SetDetails(this);
-            _TotalValue = _WorksList.GetTotalValue();
+            if (!string.IsNullOrEmpty(Name))
+                _ArtistList.Add(Name, this);
+            else
+                throw new Exception("No artist name entered");
         }
 
         public bool IsDuplicate(string prArtistName)
@@ -55,10 +55,7 @@ namespace Version_2_C
             set { _Phone = value; }
         }
 
-        public decimal TotalValue
-        {
-            get { return _TotalValue; }
-        }
+        public decimal TotalValue => _WorksList.GetTotalValue();
 
         public clsWorksList WorksList
         {
