@@ -11,9 +11,16 @@ namespace Version_2_C
         }
 
         private clsArtistList _ArtistList = new clsArtistList();
+        public delegate void Notify(string prGalleryName);
+        public event Notify GalleryNameChanged;
         private static readonly frmMain _Instance = new frmMain();
 
         internal static frmMain Instance => _Instance;
+        private void updateTitle(string prGalleryName)
+        {
+            if (!string.IsNullOrEmpty(prGalleryName))
+                Text = "Gallery - " + prGalleryName;
+        }
 
         public void updateDisplay()
         {
@@ -28,7 +35,6 @@ namespace Version_2_C
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            
             try
             {
                 frmArtist.Run(new clsArtist(_ArtistList));
@@ -98,7 +104,17 @@ namespace Version_2_C
             {
                 MessageBox.Show(ex.Message, "File retrieve error");
             }
+            GalleryNameChanged += new Notify(updateTitle);
+            GalleryNameChanged(_ArtistList.GalleryName); // event raising!
             updateDisplay();
+           
+        }
+
+        private void btnChangeName_Click(object sender, EventArgs e)
+        {
+                InputBox inputBox = new InputBox("Insert new Gallery Name");
+                _ArtistList.GalleryName = inputBox.Answer;
+                GalleryNameChanged(_ArtistList.GalleryName);
         }
     }
 }
