@@ -15,6 +15,12 @@ namespace Version_2_C
         private clsWorksList _WorksList;
         private static Dictionary<clsArtist, frmArtist> _ArtistFormList = new Dictionary<clsArtist, frmArtist>();
 
+        private void updateTitle(string prGalleryName)
+        {
+            if (!string.IsNullOrEmpty(prGalleryName))
+                Text = "Artist Details - " + prGalleryName;
+        }
+
         public static void Run(clsArtist prArtist)
         {
             frmArtist lcArtistForm;
@@ -54,6 +60,8 @@ namespace Version_2_C
         {
             _Artist = prArtist;
             txtName.Enabled = string.IsNullOrEmpty(_Artist.Name);
+            frmMain.Instance.GalleryNameChanged += new frmMain.Notify(updateTitle);
+            updateTitle(_Artist.ArtistList.GalleryName);
             updateForm();
             //updateDisplay();
             Show();
