@@ -12,7 +12,6 @@ namespace Version_2_C
         public delegate void LoadPhotographFormDelegate(clsPhotograph prPhototgraph);
         public static LoadPhotographFormDelegate LoadPhotographForm;
 
-
         public override void EditDetails()
         {
             /*if (_PhotoDialog == null)

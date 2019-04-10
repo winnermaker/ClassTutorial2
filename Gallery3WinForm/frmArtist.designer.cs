@@ -104,7 +104,7 @@ namespace Gallery3WinForm
             this.btnClose.Size = new System.Drawing.Size(179, 62);
             this.btnClose.TabIndex = 24;
             this.btnClose.Text = "Close";
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.btnClose_ClickAsync);
             // 
             // btnDelete
             // 
@@ -114,7 +114,7 @@ namespace Gallery3WinForm
             this.btnDelete.Size = new System.Drawing.Size(179, 62);
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "Delete";
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_ClickAsync);
             // 
             // btnAdd
             // 
@@ -124,7 +124,7 @@ namespace Gallery3WinForm
             this.btnAdd.Size = new System.Drawing.Size(179, 62);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Add";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_ClickAsync);
             // 
             // Label4
             // 

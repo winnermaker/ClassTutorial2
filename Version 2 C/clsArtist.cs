@@ -8,9 +8,7 @@ namespace Version_2_C
     {
         private string _Name;
         private string _Speciality;
-        private string _Phone;
-
-        private decimal _TotalValue;
+        private string _Phone;       
 
         private clsWorksList _WorksList;
         private clsArtistList _ArtistList;

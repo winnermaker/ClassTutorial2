@@ -7,7 +7,7 @@ namespace Version_2_C
     public class clsWorksList : List<clsWork>
     {
         //private static clsNameComparer _NameComparer = new clsNameComparer();
-        //private static clsDateComparer _DateComparer = new clsDateComparer();
+        //private static clsDateComparer _DateComparer = new clsDateComparer();        
         private byte _SortOrder;
 
         public void AddWork(char prChoice)
